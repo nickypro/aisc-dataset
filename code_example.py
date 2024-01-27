@@ -18,3 +18,75 @@ code_short = [
     ["def prune_and_evaluate(\n        opt: Model,\n        pruning_config: PruningConfig,\n        focus_out: Optional[dict] = None,\n        cripple_out: Optional[dict] = None,\n        iteration: Optional[int] = None,\n    ):\n    \"\"\"\n    Prune and evaluate the model\n\n    Args:\n        opt (Model): model to prune and evaluate\n        pruning_config (PruningConfig): config for pruning\n        focus_out (dict): output of get_midlayer_activations for focus dataset\n        cripple_out (dict): output of get_midlayer_activations for cripple dataset\n        iteration (int): iteration number for when activations are not recalculated\n\n    Returns:\n        output (RunDataItem): Eval data to add to RunDataHistory.\n    \"\"\"", "Function Definition and Doc string"],
     ["c = copy.deepcopy(pruning_config)\n\n    # Find out what we are doing\n    do_ff   = pruning_config.ff_frac > 0\n    do_attn = pruning_config.attn_frac > 0\n    if not do_ff and not do_attn:\n        raise ValueError(\"Must prune at least one of FF or Attention\")\n    if do_attn and pruning_config.attn_mode not in [\"pre-out\", \"value\"]:\n        raise NotImplementedError(\"attn_mode must be 'pre-out' or 'value'\")\n\n    # Get midlayer activations of FF and ATTN\n    if pruning_config.recalculate_activations:\n        focus_out   = get_midlayer_activations( opt, pruning_config.focus,\n            pruning_config.collection_sample_size, pruning_config.attn_mode )\n        cripple_out = get_midlayer_activations( opt, pruning_config.cripple,\n            pruning_config.collection_sample_size, pruning_config.attn_mode )\n\n    # Otherwise, import activation data, and adjust the \"pruning fraction\"\n    else:\n        c[\"ff_frac\"]   = min( 1.0, c[\"ff_frac\"]*(iteration+1) )\n        c[\"attn_frac\"] = min( 1.0, c[\"attn_frac\"]*(iteration+1) )\n        assert not (focus_out is None or cripple_out is None or iteration is None), \\\n            \"Must provide focus_out and cripple_out if not recalculate_activations\"\n\n    # Prune the model using the activation data\n    data = score_and_prune(opt, focus_out, cripple_out, c)\n\n    # Evaluate the model\n    with torch.no_grad():\n        eval_out = evaluate_all(opt, c.eval_sample_size, c.datasets,\n                                dataset_tokens_to_skip=c.collection_sample_size)\n        data.update(eval_out)\n\n    return data", "Function Logic"]
 ]
+
+recipe1 =   [
+    [
+      "2 cups all-purpose flour\n- 1 teaspoon baking powder\n- 1/2 teaspoon baking soda\n- 1/2 teaspoon salt\n- 1 teaspoon ground cinnamon\n- 1/2 teaspoon ground nutmeg\n- 1/2 cup unsalted butter, softened\n- 1 cup granulated sugar\n- 2 large eggs\n- 1 teaspoon vanilla extract\n- 1/2 cup sour cream or plain yogurt\n- 3 medium apples, peeled, cored, and chopped (about 3 cups)\n- Optional: 1/2 cup chopped nuts (like walnuts or pecans)\n\nFor the topping (optional):\n\n- 1/4 cup brown sugar\n- 1/2 teaspoon ground cinnamon",
+      "Ingredients"
+    ],
+    [
+      "Preheat your oven to 350°F (175°C). Grease and flour a 9-inch round cake pan or a 9x9 inch square pan.\n\nIn a medium bowl, whisk together the flour, baking powder, baking soda, salt, cinnamon, and nutmeg. Set aside.\n\nIn a large bowl, beat the softened butter and granulated sugar together until light and fluffy. This should take about 2-3 minutes.\n\nAdd the eggs, one at a time, beating well after each addition. Stir in the vanilla extract.\n\nAdd the dry ingredients to the butter mixture in three additions, alternating with sour cream or yogurt, starting and ending with the dry ingredients. Mix until just combined.\n\nGently fold in the chopped apples (and nuts if using) into the batter.\n\nIn a small bowl, mix together the brown sugar and cinnamon for the topping.\n\nPour the batter into the prepared pan and smooth the top. Sprinkle with the topping mixture if using.\n\nBake in the preheated oven for about 40-45 minutes or until a toothpick inserted into the center of the cake comes out clean.\n\nAllow the cake to cool in the pan on a wire rack. Once cool, slice and serve. It can be served as is or with a dollop of whipped cream or a scoop of ice cream.",
+      "Preparation Steps"
+    ]
+  ]
+recipe2 =   [
+    [
+      "You’ll never let the vegetables in your fridge go to waste again with this Easy Vegan Curry recipe in your back pocket. Stick to the recipe card or use the vegetables you have available to you; customizing dinner has never been so easy! It all comes together in 30 minutes and pairs best with basmati rice and homemade vegan naan. Why is this the best vegan curry? Ready in just 30 minutes. From chopping the vegetables to pouring it into bowls, this curry is ready and on the dinner table within 30 minutes. Use pre-chopped vegetables to make it even faster! Creamy and coconutty. It wouldn’t be a vegan coconut curry without coconut milk! It’s added at the end to give the curry sauce a luscious, creamy finish and smooth mouth feel. It’s versatile! Use any fresh or frozen vegetables already in your fridge or freezer, use lentils, chickpeas, or the vegan protein of your choice, or give it a boost with extra spices. Versatility is the name of the game. vegan curry in a large grey pot with a wooden spoon sticking out.",
+      "Introduction"
+    ],
+    [
+      "Ingredients needed (with substitutions) Olive oil – You can sauté the vegetables with water or vegetable stock to make it oil free if needed. Onion, garlic, and ginger – You can make this recipe even easier by using pre-minced garlic and grated ginger in a tube. If you don’t have fresh ginger, replace it with 1 teaspoon of powdered ginger. Curry powder – Use a brand you like, mild or spicy. Sweet potato – Or use white, yellow, or red potatoes instead. Cauliflower, broccoli, carrots, and red bell peppers – Curry is a great clean-out-your-fridge meal, which means you can use the vegetables listed in the recipe card or whatever is available in your fridge. Both fresh and frozen vegetables work well. Canned lentils – This is the main protein in the curry. Feel free to use chickpeas or another vegan protein, like diced seitan chicken, soy curls, or fried tofu. Coconut milk – Use light coconut milk to make it lighter or coconut cream for a richer sauce. Cashew cream will work as an easy alternative (all you need is cashews, water, and a blender). Or vegan unsweetened yogurt. Thai red curry paste – This is the one I use. Red curry paste is the spiciest of the three kinds of curry paste (red, green, and yellow) but most of the spice is hidden behind the coconut milk and aromatics, leaving you with a mild to medium spiced curry. Salt Cornstarch – To help thicken the sauce. Sugar – The sweetness is important for balance, so try not to skip the tiny bit of sugar. Feel free to use maple syrup instead. Lime juice Baby spinach – Fresh preferably. Or use kale. Cilantro – For garnish! You can leave it out if you don’t like cilantro. ",
+      "ingredients"
+    ],
+    [
+      "Saute the onion in an oiled pot over medium heat until they’re soft. Add the garlic and ginger and cook until fragrant. Lastly, stir in the curry powder. Next, add the sweet potatoes, vegetables, and lentils. raw chopped vegetables and lentils in a large grey pot. Pour in the coconut milk, red curry paste, and salt to make the sauce. Bring it up to a boil, then down to a simmer. Cook until the potatoes are fork tender. While you wait, whisk the cornstarch and water together to make a slurry. This will help thicken the curry sauce. Stir it into the curry, then add the sugar, lime juice, and spinach. Taste and season as needed. Ladle the curry into bowls with basmati rice, fresh cilantro, and hot sauce, and scoop it up with a piece of vegan naan. Enjoy! a large grey pot filled with cooked yellow vegan curry. Customize it Think of this vegan curry recipe as a blank canvas. There are plenty of other vegetables, plant-based proteins, and grains to use! Use these ideas for inspiration: Vegetables – Frozen peas, brussels sprouts, asparagus, kale, zucchini, bok choy, white potatoes, cabbage, mushrooms, tomatoes, etc. Protein – Chickpeas, lentils, tofu, tempeh, seitan, soy curls, or a mix of a few. Grains – Brown rice, white rice, or quinoa. Looking for an added boost of flavor? Add a pinch of cayenne when you add the curry powder or add diced jalapeno or serrano peppers with the onions. fresh spinach on top of a batch of vegan curry in a large grey pot.",
+      "Instructions"
+    ],
+    [
+      "Storing and freezing The curry stores really well in an airtight container in the fridge. Enjoy it for lunches or quick dinners for up to 3 days! It’s an easy freezer meal, too. Once the leftovers are cool, pack them into airtight containers and freeze for up to 3 months.",
+      "storing"
+    ]
+  ]
+
+
+clean_code =   [
+    [
+      ["Clean code is crucial for several reasons:", "Introduction"],
+      [
+        "**Readability and Maintainability**: Clean code is easy to read, understand, and modify. It benefits not only the original author but also other developers who might work with the code in the future. Well-written, clear code is essential for effective collaboration and maintenance over time, especially in a team environment.",
+        "Readability and Maintainability"
+      ],
+      [
+        "**Reduced Complexity**: Clean code often involves simplifying complex processes and breaking down tasks into smaller, more manageable components. This approach makes it easier to debug and enhances the overall quality and reliability of the software.",
+        "**Reduced Complexity**"
+      ],
+      [
+        "**Efficiency in Development**: With clean code, developers spend less time deciphering what the code does and more time on actual development and problem-solving. This efficiency can lead to faster development cycles and quicker responses to changing requirements or bug fixes.",
+        "Efficiency in Development"
+      ],
+      [
+        "**Scalability**: Cleanly written code is typically well-structured and modular, making it easier to scale the software as the need arises. It's simpler to add new features, accommodate more users, or handle more data without a complete overhaul of the system.",
+        "Scalability"
+      ],
+      [
+        "**Reduced Technical Debt**: Technical debt refers to the extra development work that arises when code that is easy to implement in the short run is used instead of applying the best overall solution. Clean code helps in minimizing technical debt, thus reducing future costs and risks associated with maintaining and upgrading the software.",
+        "Reduced Technical Debt"
+      ],
+      [
+        "**Enhanced Performance**: While clean code doesn’t always directly translate to better performance, it often leads to more efficient algorithms and data structures, which can improve the software's performance.",
+        "Enhanced performance"
+      ],
+      [
+        "**Professional Development**: Writing clean code is a mark of a professional and disciplined developer. It reflects attention to detail and a commitment to quality, which are highly valued skills in the software development industry.",
+        "Professional Development"
+      ],
+      [
+        "**Better Testing and Quality Assurance**: Clean code usually follows best practices, which include effective error handling and adherence to testing protocols. This results in more robust, less error-prone software that meets quality standards.",
+        "**Better Testing and Quality Assurance"
+      ],
+      [
+        "In summary, clean code is essential for efficient software development and maintenance, fostering collaboration, ensuring scalability, minimizing technical debt, and maintaining high standards of software quality and performance.",
+        "Summary"
+      ]
+    ]
+  ]
