@@ -97,7 +97,6 @@ recipe3 = [
     ["In a large bowl, combine flour, salt, and sugar.\nAdd the chilled butter and use a pastry cutter or two forks to blend until the mixture resembles coarse crumbs.\nGradually add ice water, 1 tablespoon at a time, mixing until a dough forms.\nShape the dough into a disk, wrap it in plastic, and refrigerate for at least 1 hour.\nPreheat your oven to 425°F (220°C).\nOn a lightly floured surface, roll the dough into a 12-inch circle.\nTransfer it to a 9-inch pie plate, trim the excess dough, and crimp the edges.\nIn a large bowl, whisk together pumpkin puree, sugar, salt, cinnamon, ginger, and cloves.\nBeat in the eggs, then gradually stir in the evaporated milk until well combined.\nPour the pumpkin filling into the pie crust.\nBake in the preheated oven for 15 minutes.\nReduce the temperature to 350°F (175°C) and continue baking for 40-50 minutes, or until a knife inserted near the center comes out clean.\nAllow the pie to cool on a wire rack for at least 2 hours.\nServe with whipped cream, if desired.", "Preparation Steps"]
 ]
 
-
 # How to create a game?
 
 game_dev = [
@@ -126,11 +125,7 @@ create_a_plan = [
     ["Review and Reflect: After the plan has been executed, review its success and any learning points for future planning.", "Review and Reflection"]
 ]
 
-
-
-
 # Give me 3 ideas about how to plan good New Years resolutions. Give me some that are personal, family, and professionally-oriented.
-
 
 new_year = [    ["Focus on Self-Improvement: Choose personal growth goals like learning new skills or improving physical fitness, with specific and measurable objectives.", "Personal Resolution: Self-Improvement"],
     ["Mindfulness and Well-being: Prioritize mental health through activities like meditation, journaling, or reducing screen time for better presence in the moment.", "Personal Resolution: Mindfulness"],
@@ -141,5 +136,16 @@ new_year = [    ["Focus on Self-Improvement: Choose personal growth goals like l
     ["Realistic and Achievable: Ensure resolutions are attainable and align with personal values and lifestyle for effective results.", "General Principle: Realism"],
     ["Regular Review and Adjustment: Continuously monitor and adjust goals throughout the year to stay on track.", "General Principle: Adaptability"]
 ]
+
+
+sql_javascript_code = [    ["Import MySQL Module: Include the MySQL module to interact with MySQL databases.", "Module Import"],
+    ["Create Database Connection: Establish a connection to the database with specified host, user, password, and database name.", "Database Connection Creation"],
+    ["Connect to Database: Initiate a connection to the database and handle any connection errors.", "Database Connection"],
+    ["Define Safe Query Function: Create a function for safely executing SQL queries with parameters and a callback function.", "Safe Query Function Definition"],
+    ["Example Usage of Safe Query: Demonstrate how to use the safeQuery function with a user ID input to query the database.", "Safe Query Usage Example"],
+    ["Close Database Connection: (Commented out) Code to close the database connection when no longer needed.", "Database Connection Closure (Commented)"]
+]
+
+
 
 
