@@ -53,39 +53,93 @@ clean_code =    [
       ["Clean code is crucial for several reasons:", "Introduction"],
       [
         "**Readability and Maintainability**: Clean code is easy to read, understand, and modify. It benefits not only the original author but also other developers who might work with the code in the future. Well-written, clear code is essential for effective collaboration and maintenance over time, especially in a team environment.",
-        "Readability and Maintainability"
+        "Arguments"
       ],
       [
         "**Reduced Complexity**: Clean code often involves simplifying complex processes and breaking down tasks into smaller, more manageable components. This approach makes it easier to debug and enhances the overall quality and reliability of the software.",
-        "**Reduced Complexity**"
+        "Arguments"
       ],
       [
         "**Efficiency in Development**: With clean code, developers spend less time deciphering what the code does and more time on actual development and problem-solving. This efficiency can lead to faster development cycles and quicker responses to changing requirements or bug fixes.",
-        "Efficiency in Development"
+        "Arguments"
       ],
       [
         "**Scalability**: Cleanly written code is typically well-structured and modular, making it easier to scale the software as the need arises. It's simpler to add new features, accommodate more users, or handle more data without a complete overhaul of the system.",
-        "Scalability"
+        "Arguments"
       ],
       [
         "**Reduced Technical Debt**: Technical debt refers to the extra development work that arises when code that is easy to implement in the short run is used instead of applying the best overall solution. Clean code helps in minimizing technical debt, thus reducing future costs and risks associated with maintaining and upgrading the software.",
-        "Reduced Technical Debt"
+        "Arguments"
       ],
       [
         "**Enhanced Performance**: While clean code doesn’t always directly translate to better performance, it often leads to more efficient algorithms and data structures, which can improve the software's performance.",
-        "Enhanced performance"
+        "Arguments"
       ],
       [
         "**Professional Development**: Writing clean code is a mark of a professional and disciplined developer. It reflects attention to detail and a commitment to quality, which are highly valued skills in the software development industry.",
-        "Professional Development"
+        "Arguments"
       ],
       [
         "**Better Testing and Quality Assurance**: Clean code usually follows best practices, which include effective error handling and adherence to testing protocols. This results in more robust, less error-prone software that meets quality standards.",
-        "**Better Testing and Quality Assurance"
+        "Arguments"
       ],
       [
         "In summary, clean code is essential for efficient software development and maintenance, fostering collaboration, ensuring scalability, minimizing technical debt, and maintaining high standards of software quality and performance.",
         "Summary"
       ]
     ]
+
+
+recipe3 = [
+    ["1 1/4 cups all-purpose flour\n1/2 teaspoon salt\n1/2 teaspoon sugar\n1/2 cup (1 stick) unsalted butter, chilled and diced\n3 to 4 tablespoons ice water", "Crust Ingredients"],
+    ["1 can (15 oz) pumpkin puree\n3/4 cup granulated sugar\n1/2 teaspoon salt\n1 teaspoon ground cinnamon\n1/2 teaspoon ground ginger\n1/4 teaspoon ground cloves\n2 large eggs\n1 can (12 oz) evaporated milk", "Filling Ingredients"],
+    ["Whipped cream for serving", "Optional Ingredients"],
+    ["In a large bowl, combine flour, salt, and sugar.\nAdd the chilled butter and use a pastry cutter or two forks to blend until the mixture resembles coarse crumbs.\nGradually add ice water, 1 tablespoon at a time, mixing until a dough forms.\nShape the dough into a disk, wrap it in plastic, and refrigerate for at least 1 hour.\nPreheat your oven to 425°F (220°C).\nOn a lightly floured surface, roll the dough into a 12-inch circle.\nTransfer it to a 9-inch pie plate, trim the excess dough, and crimp the edges.\nIn a large bowl, whisk together pumpkin puree, sugar, salt, cinnamon, ginger, and cloves.\nBeat in the eggs, then gradually stir in the evaporated milk until well combined.\nPour the pumpkin filling into the pie crust.\nBake in the preheated oven for 15 minutes.\nReduce the temperature to 350°F (175°C) and continue baking for 40-50 minutes, or until a knife inserted near the center comes out clean.\nAllow the pie to cool on a wire rack for at least 2 hours.\nServe with whipped cream, if desired.", "Preparation Steps"]
+]
+
+
+# How to create a game?
+
+game_dev = [
+    ["Conceptualize Your Game\nDefine the Core Idea: What is the unique selling point of your game? It could be a compelling story, innovative gameplay mechanics, or an engaging multiplayer experience.\nTarget Audience: Identify who you're making the game for. Different demographics have different preferences.\nGenre and Style: Decide on the genre (e.g., puzzle, shooter, RPG) and artistic style (realistic, cartoonish, retro).", "Game Conceptualization"],
+    ["Plan and Design\nCreate a Design Document: This document details everything about your game: story, characters, gameplay mechanics, levels, UI/UX, art, sound, etc.\nGame Mechanics: Flesh out how the game will be played. What are the rules, goals, and challenges?\nStoryboarding: Sketch the game's narrative flow, levels, and key moments.", "Planning and Design"],
+    ["Technical Development\nChoose a Game Engine: Select a game engine that suits your game's needs (Unity, Unreal Engine, Godot, etc.).\nProgramming: Start coding your game. This includes game mechanics, user interface, AI, and more.\nArt and Design: Create or source your game's visual elements – character designs, environments, animations, etc.\nSound Design: Add music, sound effects, and voice-overs if needed.", "Technical Development"],
+    ["Testing and Iteration\nPlaytest Regularly: Test your game frequently to identify bugs and areas for improvement.\nGather Feedback: Get input from others, especially from your target audience.\nIterate and Improve: Use the feedback to refine gameplay, fix issues, and enhance the player experience.", "Testing and Iteration"],
+    ["Launch Preparation\nMarketing and Promotion: Develop a marketing strategy. Use social media, game trailers, press releases, and possibly crowdfunding.\nMonetization Strategy: Decide how the game will make money – will it be a one-time purchase, free-to-play with in-app purchases, or subscription-based?", "Launch Preparation"],
+    ["Launch and Post-Launch Activities\nRelease Your Game: Publish your game on the appropriate platforms (Steam, App Store, Google Play, console marketplaces, etc.).\nPost-Launch Support: Continue to support the game with updates, bug fixes, and possibly new content.\nCommunity Engagement: Engage with your players through forums, social media, and in-game events to maintain interest and gather feedback for future projects or updates.", "Launch and Post-Launch"],
+    ["Reflect and Learn\nPostmortem Analysis: After the launch, analyze what worked well and what didn’t. This is crucial for your growth as a game developer.", "Reflection and Learning"],
+    ["Stay Flexible: Be ready to adapt your game based on feedback and testing results.\nLearn from Others: Study successful games to understand why they work.\nPassion and Patience: Game development is a time-consuming process that requires passion and patience.", "Additional Tips"]
+]
+
+# How to create a good plan?
+
+create_a_plan = [
+    ["Define Your Objectives: Clearly understand what you want to achieve. This step sets the direction and purpose of your plan.", "Objective Setting"],
+    ["Gather Information: Research and gather all the necessary information that will impact your plan. This could include resources, constraints, historical data, and any other relevant information.", "Information Gathering"],
+    ["Identify Resources: Determine what resources you have and what you'll need. This includes people, money, materials, and time.", "Resource Identification"],
+    ["Analyze and Identify Risks: Understand potential risks and challenges that might arise and think of ways to mitigate them.", "Risk Management"],
+    ["Set Clear Milestones and Deadlines: Break down the goal into smaller, manageable tasks or milestones. Assign realistic deadlines to each task.", "Task Planning"],
+    ["Assign Responsibilities: Clearly define who is responsible for each task. Ensure that everyone involved knows their responsibilities.", "Responsibility Assignment"],
+    ["Develop a Budget: If relevant, create a budget that outlines expected costs and ensures that the plan is financially feasible.", "Budgeting"],
+    ["Create a Communication Plan: Decide how you will communicate progress and changes to the relevant stakeholders.", "Communication Planning"],
+    ["Monitor and Adapt: Once the plan is in motion, regularly track progress. Be prepared to adapt and make changes as necessary.", "Monitoring and Adaptation"],
+    ["Review and Reflect: After the plan has been executed, review its success and any learning points for future planning.", "Review and Reflection"]
+]
+
+
+
+
+# Give me 3 ideas about how to plan good New Years resolutions. Give me some that are personal, family, and professionally-oriented.
+
+
+new_year = [    ["Focus on Self-Improvement: Choose personal growth goals like learning new skills or improving physical fitness, with specific and measurable objectives.", "Personal Resolution: Self-Improvement"],
+    ["Mindfulness and Well-being: Prioritize mental health through activities like meditation, journaling, or reducing screen time for better presence in the moment.", "Personal Resolution: Mindfulness"],
+    ["Quality Time Together: Schedule regular family activities, like dinners or outings, to strengthen family bonds without needing extravagance.", "Family Resolution: Quality Time"],
+    ["Shared Goals: Set a common family goal, such as a fitness challenge or volunteering, to encourage teamwork and shared responsibility.", "Family Resolution: Shared Goals"],
+    ["Career Development: Aim for professional growth through new certifications, workshops, or targeting specific career advancements.", "Professional Resolution: Career Development"],
+    ["Work-Life Balance: Improve balance by managing work time efficiently, setting boundaries, and dedicating time for networking.", "Professional Resolution: Work-Life Balance"],
+    ["Realistic and Achievable: Ensure resolutions are attainable and align with personal values and lifestyle for effective results.", "General Principle: Realism"],
+    ["Regular Review and Adjustment: Continuously monitor and adjust goals throughout the year to stay on track.", "General Principle: Adaptability"]
+]
+
 
